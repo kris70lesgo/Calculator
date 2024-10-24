@@ -1,0 +1,226 @@
+:root {
+    --base-var: #f2a33c;
+    --primary-color: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    display: flex;
+    
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    max-height: 1000px;
+    flex-grow: 1; 
+}
+
+.calculator {
+    background-color: #2f3533;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 375px;
+    height: auto;
+    box-shadow: -10px -10px 20px rgba(255, 255, 255, 0.1), 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.display {
+    background-color: #1c1c1c;
+    color: white;
+    font-size: 2em;
+    text-align: right;
+    padding: 5px;
+    height: 120px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: inset -5px -5px 10px rgba(255, 255, 255, 0.01), inset 5px 5px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+button {
+    background-color: #3b3b3b;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.75rem;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1), 5px 5px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button.gray {
+    background-color: #a5a5a5;
+    color: black;
+    border-radius: 50px;
+}
+
+button.yellow {
+    background-color: #f2a33c;
+    color: white;
+}
+
+#equal {
+    background-color: #f2a33c;
+    color: white;
+    border-radius: 20px;
+    width: 140px; /* Wider button for "equal" */
+    height: 60px;
+}
+
+#zero {
+    
+    border-radius: 50px;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+.buttons-row.last {
+    justify-content: flex-start; /* Align the last row with 0 and equal on the same line */
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.space{
+    word-spacing: 120px;
+}
+.footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1em;
+    width: 300px;
+    flex-direction: row;
+    
+}
+
+.footer a {
+    margin-top: 10px;
+    text-decoration: none;
+}
+.footer p {
+    margin-right: 20px; /* Add space between text and icon */
+}
+
+.github-icon {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%); /* Makes the icon white */
+    transition: transform 0.2s;
+}
+
+.github-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+.header {
+    
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border-bottom: 5px solid #f2a33c; /*effect ont the calculator makes it look cool*/
+}
+
+/* Light Theme */
+body.light-theme {
+    background-color: #51585a; /* Light mode background */
+}
+
+body.light-theme .calculator {
+    background-color: #7ca0b8; /* Light mode calculator background */
+}
+body.light-theme .button {
+    color:#1c1c1c
+}
+
+button {
+    background-color: #3b3b3b; /* Button background in dark mode */
+    /* Other button styles */
+}
+
+
+/* Theme Switch Button */
+#theme-switch {
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-var); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+#theme-switch svg {
+    fill: var(--primary-color);
+}
+
+#theme-switch svg:last-child {
+    display: none; /* Initially hide the light mode icon */
+}
+
+/* Toggle Visibility of SVGs */
+.darkmode #theme-switch svg:first-child {
+    display: none; /* Hide the dark mode icon in dark mode */
+}
+
+.darkmode #theme-switch svg:last-child {
+    display: block; /* Show the light mode icon in dark mode */
+}
